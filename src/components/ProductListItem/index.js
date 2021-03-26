@@ -1,28 +1,24 @@
 import React from 'react';
 
-export default function ProductListItem() {
+export default function ProductListItem({product}) {
   return (
-    <>
-      <a href="product.html">
-        <img class="medium" src="images/p1.jpg" alt="product" />
-      </a>
-      <div class="card-body">
-        <a href="product.html">
-          <h2>Nike Slim Shirt</h2>
+    <div className="card" key={product._id}>
+      <a href={`/product/${product._id}`} title={product.name}><img className="medium" src={product.image} alt={product.name} /></a>
+      <div className="card-body">
+        <a href={`/product/${product._id}`} title={product.name}>
+          <h2>{product.name}</h2>
         </a>
-        <div class="rating">
+        <div className="rating">
           <span>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
+            <i className="fa fa-star"></i>
           </span>
         </div>
-        <div class="price">
-          $100
-        </div> 
+        <div className="price">{product.price}</div> 
       </div>
-    </>
+    </div>
   )
 }
