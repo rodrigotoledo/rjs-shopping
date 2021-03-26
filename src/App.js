@@ -1,24 +1,23 @@
-import React from 'react'
-import ProductListItem from './components/ProductListItem'
+import React from 'react';
+import data from './data';
+import ProductListItem from './components/ProductListItem';
 
 function App() {
   return (
-    <div class="grid-container">
-      <header class="row">
-        <div><a class="brand" href="index.html">amazona</a></div>
+    <div className="grid-container">
+      <header className="row">
+        <div><a className="brand" href="/">amazona</a></div>
         <div>
-          <a href="cart.html">Cart</a>
-          <a href="signin.html">Sign In</a>
+          <a href="/cart" title="Cart">Cart</a>
+          <a href="/signin" title="Sign In">Sign In</a>
         </div>
       </header>
       <main>
-        <div class="row center">
-          <div class="card">
-            <ProductListItem />
-          </div>
+        <div className="row center">
+          {data.products.map((product) => <ProductListItem product={product} />)}
         </div>
       </main>
-      <footer class="row center">All right reserved</footer>
+      <footer className="row center">All right reserved</footer>
     </div>
   );
 }
