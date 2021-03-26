@@ -1,6 +1,7 @@
-import React from 'react';
+import Rating from '../Rating';
 
-export default function ProductListItem({product}) {
+export default function ProductListItem(props) {
+  const { product } = props;
   return (
     <div className="card" key={product._id}>
       <a href={`/product/${product._id}`} title={product.name}><img className="medium" src={product.image} alt={product.name} /></a>
@@ -8,15 +9,7 @@ export default function ProductListItem({product}) {
         <a href={`/product/${product._id}`} title={product.name}>
           <h2>{product.name}</h2>
         </a>
-        <div className="rating">
-          <span>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-          </span>
-        </div>
+        <Rating rating={product.rating} numReviews={product.numReviews} />
         <div className="price">{product.price}</div> 
       </div>
     </div>
